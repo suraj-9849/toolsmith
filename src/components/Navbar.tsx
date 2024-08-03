@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [isHovering, setIsHovering] = React.useState(false);
   return (
     <div className='p-8 ml-20 mr-10 flex justify-between'>
         <div>
-            <h1 className='font-mono text-4xl font-semibold text-blue-600'>_Ascendix</h1>
+            <Link to={"/"}>
+                <h1 className='font-mono text-4xl font-semibold text-blue-600'>_Ascendix</h1>
+            </Link>
         </div>
         <div className='flex mt-1'>
             <div 
@@ -15,7 +18,7 @@ function Navbar() {
                 <button className='font-mono text-xl text-black'>Product</button>
                 {
                     isHovering && (
-                        <div className='transition duration-500 ease-in bg-gray-100 p-4'>
+                        <div className='transition duration-500 ease-in absolute bg-gray-100 p-4'>
                             <p>Product 1</p>
                             <p>Product 2</p>
                             <p>Product 3</p>
@@ -29,7 +32,9 @@ function Navbar() {
                 </div>
             </div>
             <div className=''>
-                <button className='font-mono text-xl text-black'>Pricing</button>
+                <Link to={"/pricing"}>
+                    <button className='font-mono text-xl text-black'>Pricing</button>
+                </Link>
             </div>
         </div>
         <div className='justify-evenly'>
