@@ -12,7 +12,7 @@ function Postgres() {
     const [processed, setProcessed] = React.useState<boolean>(true)
     const SaveConnection = () => {
         setIsProcessing(true)
-        window.location.href = '/databases'
+        window.location.href = '/databases'  // please provide the correct redirection this makes the page non single page
         setIsProcessing(false)
     }
   return (

@@ -10,6 +10,7 @@ import Mongo from './components/Mongo';
 import DataComp from './components/DataComp';
 import Postgres from './components/Postgres';
 import Databases from './components/Databases';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/dbenter/mongo' element={<Mongo />} />
         <Route path='/dbenter/postgres' element={<Postgres />} />
         <Route path='/databases' element={<Databases/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
       </Routes>
     </>
   );
