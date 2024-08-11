@@ -11,12 +11,14 @@ import DataComp from './components/DataComp';
 import Postgres from './components/Postgres';
 import Databases from './components/Databases';
 import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<DataBaseHome />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/pricing' element={<Pricing />} />
         <Route path='/dbenter' element={<DbEnter />} />
         <Route path='/dbenter/mongo' element={<Mongo />} />

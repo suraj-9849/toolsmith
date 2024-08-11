@@ -12,7 +12,7 @@ function DataBaseHome() {
     <>
         <Navbar />
         <div className='flex-row'>
-            <div className='flex justify-between mt-5 mx-10 p-5'>
+            <div className='flex justify-between mt-4 mx-10 p-5'>
                 <div className='mx-10 w-1/2'>
                     <h1 className="bg-gradient-to-r p-2 border-l-4 border-blue-500 from-blue-200 from-10% to-white to-90% font-medium font-mono text-4xl">
                         Get Your Database Gui 
@@ -20,24 +20,24 @@ function DataBaseHome() {
                     <h1 className='font-mono text-4xl mt-3 font-medium'>
                         in minutes
                     </h1>
-                    <p className=' mt-2 font-light text-lg'>
-                        Accelerate Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste illum natus rerum molestiae minus cumque doloribus. Cupiditate quo animi saepe? Nihil quaerat fuga necessitatibus, ab debitis quod doloribus distinctio esse placeat, maiores, iure temporibus quidem totam. Ex libero ab magnam ipsum possimus asperiores repudiandae doloremque doloribus pariatur aperiam! Excepturi dolorem nisi voluptates commodi ducimus recusandae quod animi hic illum repellendus.
+                    <p className=' mt-2 font-light text-gray-700 text-lg'>
+                    The database GUI is designed to seamlessly connect and manage multiple data sources, offering users an intuitive interface for querying, visualizing, and analyzing data across different platforms. 
                     </p>
                     <Link to={"/dbenter"}>
-                    <button className='mt-8 p-4 border-2 font-mono hover:bg-blue-600 text-blue-600 text-lg transition duration-300 bg-blue-100 hover:text-white  border-blue-600 rounded-md'>Try Now
-                        <CgArrowTopRight className='inline-block ml-1 mb-1' size={20}/>
-                    </button>
+                        <button className='mt-8 p-4 border-2 font-mono hover:bg-blue-600 text-blue-600 text-lg transition duration-300 bg-blue-100 hover:text-white  border-blue-600 rounded-md'>Try Now
+                            <CgArrowTopRight className='inline-block ml-1 mb-1' size={20}/>
+                        </button>
                     </Link>
                 </div>
                 <div className='w-3/4'>
-                    <img src={dbimg} alt="" />
+                    <img src={dbimg} className='h-[45vh] ml-16' alt="" />
                 </div>
             </div>
             <div className='flex-row items-center justify-center'>
                 <div className='flex items-center justify-center'>
-                    <h1 className='font-mono text-4xl text-blue-600 font-semibold'>The Businesses who trust us</h1>
+                    <h1 className='font-mono text-3xl text-blue-600 font-semibold'>The Businesses who trust us</h1>
                 </div>
-                <div className='my-10 mx-10'>
+                <div className='my-5 mx-10'>
                     <Marquee autoFill={true} loop={0} gradient={true}>
                     <svg width="300" height="100" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M113.184 25.3193C113.184 22.2811 110.718 19.8145 107.68 19.8145H62.3193C59.2811 19.8145 56.8145 22.2811 56.8145 25.3193V70.6796C56.8145 73.7178 59.2811 76.1845 62.3193 76.1845H107.68C110.718 76.1845 113.184 73.7178 113.184 70.6796V25.3193Z" fill="#4E3188"/>
