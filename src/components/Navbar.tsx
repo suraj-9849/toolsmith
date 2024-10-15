@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function Navbar() {
     const [isHovering, setIsHovering] = React.useState(false);
   return (
-    <div className='p-8 ml-20 mr-10 flex justify-between'>
+    <div className='p-4 flex items-center justify-between'>
         <div>
             <Link to={"/"}>
-                <h1 className='font-mono text-4xl font-semibold text-blue-600'>_Ascendix</h1>
+                <h1 className='font-mono text-2xl font-semibold text-blue-600'>_Ascendix</h1>
             </Link>
         </div>
         <div className='flex mt-1'>
@@ -39,9 +39,9 @@ function Navbar() {
         </div>
         <div className='justify-evenly'>
             <Link to={'/login'}>
-                <button className='mx-4 font-mono transition duration-500 hover:bg-blue-100 text-lg p-2 hover:text-blue-600 border-2 border-solid border-blue-600 rounded-md'>Login</button>
+                <button className='mx-4 font-mono transition duration-300 hover:scale-105 hover:bg-blue-100 text-md p-2 hover:text-blue-600 text-blue-600 border border-solid border-blue-600 rounded-md'>Login</button>
             </Link>
-            <button className='mx-4 rounded-md hover:bg-blue-600  border-blue-600 font-mono border-solid hover:border-blue-600 p-2 border-2 bg-blue-100  hover:text-white transition duration-300 text-lg text-blue-600'>Signup</button>
+            <button className='mx-4 rounded-md hover:bg-blue-600  border-blue-600 font-mono font-light border-solid hover:border-blue-600 p-2 border text-md bg-blue-100  hover:text-white transition duration-300  text-blue-600'>Signup</button>
         </div>
     </div>
   )

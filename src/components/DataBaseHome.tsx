@@ -5,40 +5,77 @@ import { CgArrowTopRight } from "react-icons/cg";
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
+import land from '../icons/land.png'
 
 function DataBaseHome() {
     // we should check here whether the user has logged in or not and then show the content accordingly
   return (
     <>
-        <Navbar />
-        <div className='flex-row'>
-            <div className='flex justify-between mt-4 mx-10 p-5'>
-                <div className='mx-10 w-1/2'>
-                    <h1 className="bg-gradient-to-r p-2 border-l-4 border-blue-500 from-blue-200 from-10% to-white to-90% font-medium font-mono text-4xl">
-                        Get Your Database Gui 
-                    </h1>
-                    <h1 className='font-mono text-4xl mt-3 font-medium'>
-                        in minutes
-                    </h1>
-                    <p className=' mt-2 font-light text-gray-700 text-lg'>
-                    The database GUI is designed to seamlessly connect and manage multiple data sources, offering users an intuitive interface for querying, visualizing, and analyzing data across different platforms. 
-                    </p>
-                    <Link to={"/dbenter"}>
-                        <button className='mt-8 p-4 border-2 font-mono hover:bg-blue-600 text-blue-600 text-lg transition duration-300 bg-blue-100 hover:text-white  border-blue-600 rounded-md'>Try Now
-                            <CgArrowTopRight className='inline-block ml-1 mb-1' size={20}/>
-                        </button>
-                    </Link>
-                </div>
-                <div className='w-3/4'>
-                    <img src={dbimg} className='h-[45vh] ml-16' alt="" />
+        <div className='bg-gradient-to-b h-[100vh] from-blue-100 via-blue-50 to-white'>
+            <Navbar />
+            <div className='flex-row mt-5'>
+                {/* <div className='flex justify-between mt-4 mx-10 p-5'>
+                    <div className='mx-10 w-1/2'>
+                        <h1 className="bg-gradient-to-r p-2 border-l-4 border-blue-500 from-blue-200 from-10% to-white to-90% font-medium font-mono text-4xl">
+                            Get Your Database Gui 
+                        </h1>
+                        <h1 className='font-mono text-4xl mt-3 font-medium'>
+                            in minutes
+                        </h1>
+                        <p className=' mt-2 font-light text-gray-700 text-lg'>
+                        The database GUI is designed to seamlessly connect and manage multiple data sources, offering users an intuitive interface for querying, visualizing, and analyzing data across different platforms. 
+                        </p>
+                        <Link to={"/dbenter"}>
+                            <button className='mt-8 p-4 border-2 font-mono hover:bg-blue-600 text-blue-600 text-lg transition duration-300 bg-blue-100 hover:text-white  border-blue-600 rounded-md'>Try Now
+                                <CgArrowTopRight className='inline-block ml-1 mb-1' size={20}/>
+                            </button>
+                        </Link>
+                    </div>
+                    <div className='w-3/4'>
+                        <img src={dbimg} className='h-[45vh] ml-16' alt="" />
+                    </div>
+                </div> */} 
+                <div className='flex items-center justify-center'>
+                    <div  className='flex justify-center w-[90vw] h-[40vh] '>
+                        <div className='text-center text-wrap'>
+                            <div className='flex justify-center items-center'>
+                                <h1 className='text-6xl'>Accelerate&nbsp;</h1>
+                                <h1 className='font-mono text-6xl font-semibold text-blue-600'>Database</h1>
+                                <h1 className='text-6xl'>&nbsp;Management</h1>
+                            </div>
+                            {/* <h1 className=' font-sans text-blue-600 text-6xl '>Accelerate Database Management</h1> */}
+                            <h1 className='font-sans mt-1 text-6xl'>and Development</h1>
+                            {/* <p className=' mt-2 font-light text-gray-700 text-lg'>
+                            The database GUI is designed to seamlessly connect and manage multiple data sources, offering users an intuitive interface for querying, visualizing, and analyzing data across different platforms. 
+                            </p> */}
+                            <div className='flex items-center justify-center'>
+                                <div className=' w-[60vw]'>
+                                    <p className=' mt-6 text-gray-600 text-lg'>
+                                    The database GUI is designed to seamlessly connect and manage multiple data sources, offering users an intuitive interface for querying, visualizing, and analyzing data across different platforms. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='mt-5 flex justify-center'>
+                                <Link to={'/dbenter'}>
+                                    <button className='p-3 bg-blue-600 rounded-lg'>
+                                        <h1 className='text-white font-mono'>Get started</h1>
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className='mt-5 p-1 border-t border-x shadow-md shadow-blue-200  rounded-md'>
+                                <img className='rounded-md' src={land} alt="" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className='flex-row items-center justify-center'>
+        </div>
+            <div className='flex-row mt-32 mb-10 items-center justify-center'>
                 <div className='flex items-center justify-center'>
                     <h1 className='font-mono text-3xl text-blue-600 font-semibold'>The Businesses who trust us</h1>
                 </div>
                 <div className='my-5 mx-10'>
-                    <Marquee autoFill={true} loop={0} gradient={true}>
+                    <Marquee autoFill={true} loop={0} >
                     <svg width="300" height="100" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M113.184 25.3193C113.184 22.2811 110.718 19.8145 107.68 19.8145H62.3193C59.2811 19.8145 56.8145 22.2811 56.8145 25.3193V70.6796C56.8145 73.7178 59.2811 76.1845 62.3193 76.1845H107.68C110.718 76.1845 113.184 73.7178 113.184 70.6796V25.3193Z" fill="#4E3188"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M109.056 55.601V69.8538C109.056 71.0544 108.093 72.0319 106.898 72.0554L92.3417 72.0553L82.8381 55.601H109.056ZM90.1761 72.0553H64.4254L77.3079 49.7763L90.1761 72.0553ZM62.3578 71.9106C61.5788 71.6119 61.0124 70.8838 60.9491 70.0171L60.943 60.1929L71.4116 42.068H79.5941L62.3578 71.9106ZM87.0774 42.0341C87.7903 42.0371 88.4724 42.4559 88.8406 43.0765C88.8445 43.0828 88.8517 43.0954 88.8517 43.0954L91.0151 46.8416C91.0151 46.8416 91.0277 46.8626 91.0338 46.8727C91.3872 47.4911 91.401 48.2703 91.0476 48.8999C90.3226 50.1684 89.586 51.4307 88.855 52.6961C88.496 53.3115 87.8167 53.713 87.0945 53.722C85.7166 53.7278 82.9537 53.7246 82.9499 53.7246C82.237 53.7216 81.5439 53.3415 81.1751 52.7209C81.1668 52.7075 81.1514 52.68 81.1514 52.68C81.1514 52.68 78.9869 48.9334 78.9825 48.9247C78.6285 48.3063 78.6291 47.5074 78.9825 46.8777C78.9875 46.8685 78.9985 46.85 78.9985 46.85C78.9985 46.85 80.4468 44.3377 81.1718 43.0815C81.5307 42.4661 82.2117 42.0427 82.9334 42.0337C82.9455 42.0337 82.9697 42.0331 82.9697 42.0331L87.0774 42.0341ZM107.563 24.0602L90.4293 53.7246H109.056V26.1451C109.056 25.1781 108.431 24.3558 107.563 24.0602ZM81.8803 23.9431H105.465L92.71 46.0263L80.918 25.6098L81.8803 23.9431ZM87.1749 40.193H72.4945L79.8347 27.4847L87.1749 40.193Z" fill="url(#paint0_radial_942_16434)"/>
@@ -116,7 +153,15 @@ function DataBaseHome() {
                     <img className=' h-80 w-auto' src={db2} alt="" />
                 </div>
             </div>
-        </div>
+            {/* <div className='mt-10'>
+                <div className='flex items-center justify-center'>
+                    <h1 className='font-mono text-blue-600 text-4xl font-semibold'>Integrations</h1>
+                </div>
+                <div className='flex items-center justify-center'>
+                    <img src={require('../icons/inte.png')} alt="" />
+                </div>
+            </div> */}
+            
     </>
   )
 }

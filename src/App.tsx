@@ -12,6 +12,8 @@ import Postgres from './components/Postgres';
 import Databases from './components/Databases';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import SelectDs from './components/SelectDs';
+import Connection from './components/Connection';
 
 function App() {
   return (
@@ -20,9 +22,10 @@ function App() {
         <Route path='/' element={<DataBaseHome />} />
         <Route path='/login' element={<Login />} />
         <Route path='/pricing' element={<Pricing />} />
-        <Route path='/dbenter' element={<DbEnter />} />
+        <Route path='/dbenter' element={<SelectDs />} />
+        <Route path='/connection/:source' element={<Connection />} />
         <Route path='/dbenter/mongo' element={<Mongo />} />
-        <Route path='/dbenter/postgres' element={<Postgres />} />
+        {/* <Route path='/dbenter/postgres' element={<Postgres />} /> */}
         <Route path='/databases' element={<Databases/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
       </Routes>

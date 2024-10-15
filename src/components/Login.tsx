@@ -2,11 +2,43 @@ import React from 'react'
 import bonnie from '../icons/bonnie.png'
 import thomas from '../icons/thomas.png'
 import jese from '../icons/jese.png'
+import Navbar from './Navbar'
+import axios from 'axios'
+import { CgSpinner } from 'react-icons/cg'
 
 function Login() {
+
+    const [email, setEmail] = React.useState<string>('');
+    const [pass, setPass] = React.useState<string>('');
+    const [loading, setLoading] = React.useState<boolean>(false);
+    const SubmitHandler = async(e: any) => {
+        e.preventDefault();
+        // console.log("Hello");
+        // console.log(email);
+        // console.log(pass);
+        setLoading(true);
+        await axios.post('http://localhost:5000/api/user/login', {
+            email: email,
+            password: pass
+        }).
+        then((response) => {
+            // setLoading(false);
+            console.log(response.data);
+        }).
+        catch((err) => {
+            // setLoading(false);
+            console.log(err);
+        })
+        .finally(() => {
+            setLoading(false);
+        })
+
+    }
   return (
         <>
-            <div className='flex h-screen items-center justify-center content-center'>
+            <div className='bg-gradient-to-b from-blue-100 via-blue-50 to-white'>
+            <Navbar /> 
+            <div className='flex h-screen  items-center justify-center content-center'>
                 <div className='flex w-[80vw] items-center'>
                     <div className='w-1/2 p-10 h-[60vh] rounded-md content-center flex-row bg-blue-600'>
                         <div className='mt-10'>
@@ -35,10 +67,26 @@ function Login() {
                             </div>
                             <div className='mt-4'>
                                 <h1 className='font-semibold font-mono'>Email</h1>
-                                <input type='email' className='font-mono border font-light bg-gray-50 p-2 w-full mt-2 resize-none border-gray-300 rounded-md focus:outline-none' placeholder='Enter Your Email'/>
+                                <input type='email' 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                className='font-mono border font-light bg-gray-50 p-2 w-full mt-2 resize-none border-gray-300 rounded-md focus:outline-none' placeholder='Enter Your Email'/>
                                 <h1 className='font-semibold mt-2 font-mono'>Password</h1>
-                                <input type='password' className='font-mono border p-2 w-full mt-2 bg-gray-50 font-light resize-none border-gray-300 rounded-md focus:outline-none' placeholder='Enter Your Password'/>
-                                <button className='w-full p-2 bg-blue-600 font-mono mt-4 text-white rounded-md justify-center flex items-center'>Login</button>
+                                <input type='password' 
+                                value={pass}
+                                    onChange={(e) => setPass(e.target.value)}
+                                className='font-mono border p-2 w-full mt-2 bg-gray-50 font-light resize-none border-gray-300 rounded-md focus:outline-none' placeholder='Enter Your Password'/>
+                                <button 
+                                    onClick={SubmitHandler}
+                                className='w-full p-2 bg-blue-600 font-mono mt-4 text-white rounded-md justify-center flex items-center'>
+                                    {
+                                        loading === true ? <CgSpinner className='animate-spin mx-2' size={20}/>  : null
+                                    }
+                                    <h1>
+                                        Login
+                                    </h1>
+                                    
+                                </button>
                                 <div className='flex mt-2'>
                                     <h1 className='font-light font-mono'>Don't have an account?</h1>
                                     <h1 className='font-mono text-blue-600'>&nbsp;SignUp</h1>
@@ -76,6 +124,7 @@ function Login() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
   )
