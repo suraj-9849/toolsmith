@@ -24,7 +24,7 @@ function DbEnter(props: any) {
                 <h1 className='px-2 text-white font-mono'>1</h1>
             </div> */}
         <div>
-          <h1 className="font-mono ml-2 text-2xl text-blue-600">Sources</h1>
+          <h1 className="font-mono ml-2 sm:text-2xl text-lg text-blue-600">Sources</h1>
         </div>
         <div className="mt-1 ml-3">
           <FaChevronRight className=" text-blue-600" />
@@ -33,7 +33,7 @@ function DbEnter(props: any) {
           <h1 className="px-2 font-mono text-blue-600">2</h1>
         </div>
         <div>
-          <h1 className="font-mono ml-2 text-2xl text-blue-600">Connection Url</h1>
+          <h1 className="font-mono ml-2  sm:text-2xl text-lg text-blue-600">Connection Url</h1>
         </div>
       </div>
     </div>
