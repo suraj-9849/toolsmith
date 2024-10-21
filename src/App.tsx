@@ -14,6 +14,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import SelectDs from './components/SelectDs';
 import Connection from './components/Connection';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DataBaseHome />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/dbenter" element={<SelectDs />} />
         <Route path="/connection/:source" element={<Connection />} />

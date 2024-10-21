@@ -5,6 +5,7 @@ import jese from '../icons/jese.png';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { CgSpinner } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = React.useState<string>('');
@@ -93,7 +94,9 @@ function Login() {
                   </button>
                   <div className="flex mt-2">
                     <h1 className="font-light font-mono">Don't have an account?</h1>
-                    <h1 className="font-mono text-blue-600">&nbsp;SignUp</h1>
+                    <Link to={"/signup"} >
+                    <button className="font-mono text-blue-600">&nbsp;SignUp</button>
+                    </Link>
                   </div>
                 </div>
                 <div className="my-4 flex items-center gap-4">
