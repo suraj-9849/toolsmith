@@ -1,6 +1,3 @@
-
-import { Link } from 'lucide-react';
-
 const Footer = () => {
   return (
     <footer className="bg-white text-gray-800 py-8 px-6 w-full">
