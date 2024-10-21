@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import SideBarForDashboard from './SideBarForDashboard';
 import { DiMongodb } from 'react-icons/di';
 import { MdOutlineChevronRight } from 'react-icons/md';
@@ -18,6 +18,9 @@ import { HiOutlineTableCells } from 'react-icons/hi2';
 import { TiTick } from 'react-icons/ti';
 import { Interface } from 'readline';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { VscAccount } from "react-icons/vsc";
+import { CiLogout } from "react-icons/ci";
+import { CgOrganisation } from "react-icons/cg";
 
 function Databases() {
   // get datasources from the backend
@@ -91,6 +94,15 @@ function Databases() {
 
   const [SourceIdx, setSourceIdx] = React.useState<number>(-1); // this is for showing the table details
 
+  const [showAccountModal, setShowAccountModal] = React.useState<boolean>(false); // this is for showing the account modal
+
+  const modalRef = useRef<HTMLDivElement>(null);
+  const handleOutsideClick = (event: MouseEvent) => {
+    if(modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setShowAccountModal(false);
+    }
+  }
+
   const headings = ['Id', 'FirstName', 'LastName', 'email', 'phone'];
 
   const tableData = [
@@ -130,6 +142,12 @@ function Databases() {
   //         },
   //     });
   // });
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    }
+  }, [setShowAccountModal])
   return (
     <>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
@@ -439,9 +457,42 @@ function Databases() {
             <button>
               <IoSettingsOutline className="text-gray-500 mr-5" size={24} />
             </button>
-            <button>
+            <button
+              onClick={() => {
+                setShowAccountModal(true);
+              }}
+            >
               <img src={user} alt="" className=" h-[2rem] w-9 rounded-full" />
             </button>
+            {
+              showAccountModal ? (
+                <div ref={modalRef} className="absolute right-10 w-48 top-12 bg-white border border-gray-300 rounded-md p-2">
+                  <Link to={'/account'}>
+                    <div className='flex items-center rounded-md hover:bg-gray-200 p-2'>
+                      <VscAccount className='text-black' size={20}/> 
+                      <h1 className="font-mono text-md ml-2 text-black font-light">Account</h1>
+                    </div>
+                  </Link>
+                  <div className='flex items-center rounded-md hover:bg-gray-200 p-2'>
+                    <IoSettingsOutline className='text-black' size={20}/>
+                    <h1 className="font-mono text-md ml-2 text-black font-light">Settings</h1>
+                  </div>
+                  <div className='flex items-center rounded-md hover:bg-gray-200 p-2'>
+                    <CgOrganisation className='text-black' size={20}/>
+                    <h1 className="font-mono text-md ml-2 text-black font-light">Organisations</h1>
+                  </div>
+                  <div className='border-t border-gray-300 mb-2 mt-2'>
+
+                  </div>
+                  <div className='flex items-center rounded-md hover:bg-gray-200 p-2'>
+                    <CiLogout className='text-red-500' size={20}/>
+                    <h1 className="font-mono text-md ml-2 text-red-500">Logout</h1>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )
+            }
           </div>
           <div className="flex">
             <div className="w-3/4 p-4 h-[93vh] border-r flex-row border-gray-300">
