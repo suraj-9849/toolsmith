@@ -14,7 +14,7 @@ function Navbar() {
       </div>
       <div className="hidden md:flex mt-1 items-center space-x-6">
         <div onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}>
-          <button className="font-mono text-xl text-black">Product</button>
+          <button className="font-mono text-xl text-black hover:text-blue-600">Product</button>
           {isHovering && (
             <div className="transition-all duration-500 ease-in absolute bg-gray-100 p-4">
               <p>Product 1</p>
@@ -24,11 +24,11 @@ function Navbar() {
           )}
         </div>
         <div>
-          <button className="font-mono text-xl text-black">About</button>
+          <button className="font-mono text-xl text-black hover:text-blue-600">About</button>
         </div>
         <div>
           <Link to={'/pricing'}>
-            <button className="font-mono text-xl text-black">Pricing</button>
+            <button className="font-mono text-xl text-black hover:text-blue-600">Pricing</button>
           </Link>
         </div>
       </div>
@@ -57,7 +57,7 @@ function Navbar() {
       )}
       <div className="hidden md:flex items-center justify-evenly">
         <Link to={'/login'}>
-          <button className="mx-4 font-mono transition duration-300 hover:scale-105 hover:bg-blue-100 text-md p-2 hover:text-blue-600 text-blue-600 border border-solid border-blue-600 rounded-md">
+          <button className="mx-4 rounded-md hover:bg-blue-600 border-blue-600 font-mono font-light border-solid hover:border-blue-600 p-2 border text-md bg-blue-100 hover:text-white transition duration-300 text-blue-600">
             Login
           </button>
         </Link>
