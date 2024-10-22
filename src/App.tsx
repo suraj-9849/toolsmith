@@ -31,7 +31,7 @@ function App() {
         {/* <Route path='/dbenter/postgres' element={<Postgres />} /> */}
         <Route path="/databases" element={<Databases />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path='/account/profile' element={<Account />} />
+        <Route path="/account/profile" element={<Account />} />
       </Routes>
     </>
   );
