@@ -94,8 +94,8 @@ function Login() {
                   </button>
                   <div className="flex mt-2">
                     <h1 className="font-light font-mono">Don't have an account?</h1>
-                    <Link to={"/signup"} >
-                    <button className="font-mono text-blue-600">&nbsp;SignUp</button>
+                    <Link to={'/signup'}>
+                      <button className="font-mono text-blue-600">&nbsp;SignUp</button>
                     </Link>
                   </div>
                 </div>

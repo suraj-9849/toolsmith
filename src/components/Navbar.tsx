@@ -61,10 +61,10 @@ function Navbar() {
             Login
           </button>
         </Link>
-        <Link to={"/signup"} >
-        <button className="mx-4 rounded-md hover:bg-blue-600 border-blue-600 font-mono font-light border-solid hover:border-blue-600 p-2 border text-md bg-blue-100 hover:text-white transition duration-300 text-blue-600">
-          Signup
-        </button>
+        <Link to={'/signup'}>
+          <button className="mx-4 rounded-md hover:bg-blue-600 border-blue-600 font-mono font-light border-solid hover:border-blue-600 p-2 border text-md bg-blue-100 hover:text-white transition duration-300 text-blue-600">
+            Signup
+          </button>
         </Link>
       </div>
     </nav>
