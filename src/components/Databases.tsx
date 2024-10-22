@@ -464,7 +464,7 @@ function Databases() {
             {
               showAccountModal ? (
                 <div ref={modalRef} className="absolute right-10 w-48 top-12 bg-white border border-gray-300 rounded-md p-2">
-                  <Link to={'/account'}>
+                  <Link to={'/account/profile'}>
                     <div className='flex items-center rounded-md hover:bg-gray-200 p-2'>
                       <VscAccount className='text-black' size={20}/> 
                       <h1 className="font-mono text-md ml-2 text-black font-light">Account</h1>
