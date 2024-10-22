@@ -454,9 +454,6 @@ function Databases() {
                 <h1 className="text-white font-mono text-md font-light">Add Source</h1>
               </button>
             </Link>
-            <button>
-              <IoSettingsOutline className="text-gray-500 mr-5" size={24} />
-            </button>
             <button
               onClick={() => {
                 setShowAccountModal(true);
