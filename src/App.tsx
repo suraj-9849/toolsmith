@@ -16,6 +16,7 @@ import SelectDs from './components/SelectDs';
 import Connection from './components/Connection';
 import Signup from './components/Signup';
 import Account from './components/Account';
+import Branches from './components/Branches';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/databases" element={<Databases />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/account/profile" element={<Account />} />
+        <Route path="/database/branches" element={<Branches />} />
       </Routes>
     </>
   );
