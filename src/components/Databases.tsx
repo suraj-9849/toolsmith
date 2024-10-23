@@ -302,13 +302,11 @@ function Databases() {
         </div>
       </Modal>
       <div className="flex">
-        <SidebarForDatabases
-          setShowModal={setShowModal}
-        />
+        <SidebarForDatabases setShowModal={setShowModal} />
         <div className="w-screen">
           <div className="border-b flex items-center justify-between pr-5 border-gray-300 p-3">
             <NavbarForDb />
-            <div className='flex items-center'>
+            <div className="flex items-center">
               <Link to={'/dbenter'}>
                 <button className="flex bg-blue-600 rounded-md mr-3 p-1 items-center">
                   <GoPlus className="text-white" size={20} />
