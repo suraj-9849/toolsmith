@@ -1,10 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import SideBarForDashboard from './SideBarForDashboard';
-import { DiMongodb } from 'react-icons/di';
-import { MdOutlineChevronRight } from 'react-icons/md';
-import { BiLogoPostgresql } from 'react-icons/bi';
-import { CiCirclePlus } from 'react-icons/ci';
-import { SiMysql } from 'react-icons/si';
 import user from '../icons/user.jpg';
 import { IoSettingsOutline } from 'react-icons/io5';
 import Editor, { loader } from '@monaco-editor/react';
@@ -16,53 +10,21 @@ import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { HiOutlineTableCells } from 'react-icons/hi2';
 import { TiTick } from 'react-icons/ti';
-import { Interface } from 'readline';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { VscAccount } from 'react-icons/vsc';
 import { CiLogout } from 'react-icons/ci';
 import { CgOrganisation } from 'react-icons/cg';
+import NavbarForDb from './NavbarForDb';
+import SidebarForDatabases from './SidebarForDatabases';
 
 function Databases() {
   // get datasources from the backend
-  const dataSources = [
-    {
-      name: 'Sales',
-      tables: ['orders', 'return_sales'],
-      icon: <DiMongodb className="text-green-600" size={24} />,
-    },
-    {
-      name: 'Social App',
-      tables: ['users', 'posts', 'comments'],
-      icon: <BiLogoPostgresql className="text-blue-600" size={24} />,
-    },
-    {
-      name: 'Employees',
-      tables: ['lists', 'teams', 'developers'],
-      icon: <SiMysql className="text-yellow-600" size={24} />,
-    },
-  ];
 
   interface Columns {
     colName: string;
     colDataType: string;
     attribute: string;
   }
-
-  interface addTable {
-    tableName: String;
-    columns: [Columns];
-  }
-
-  let columnToEnter: Columns = {
-    colName: '',
-    colDataType: '',
-    attribute: '',
-  };
-
-  let tableToEnter: addTable = {
-    tableName: '',
-    columns: [columnToEnter],
-  };
 
   // const [addNewColumn, setAddNewColumn] = React.useState<Columns>(columnToEnter);
 
@@ -87,12 +49,6 @@ function Databases() {
   const [fillingErrorIdx, setFillingErrorIdx] = React.useState<number>(-1); // this is for error finding
 
   const [fillingError, setFillingError] = React.useState<boolean>(false); // this is for error finding
-
-  const [tableDetailsButton, setTableDetailsButton] = React.useState<boolean>(false); // this is for showing the table details
-
-  const [tableDetailsButtonIdx, setTableDetailsButtonIdx] = React.useState<number>(-1); // this is for showing the table details
-
-  const [SourceIdx, setSourceIdx] = React.useState<number>(-1); // this is for showing the table details
 
   const [showAccountModal, setShowAccountModal] = React.useState<boolean>(false); // this is for showing the account modal
 
@@ -346,149 +302,55 @@ function Databases() {
         </div>
       </Modal>
       <div className="flex">
-        <div className=" w-1/4 h-screen border-r border-gray-300">
-          <div className="border-b p-3 border-gray-300">
-            <h1 className="text-2xl font-mono font-bold text-blue-600">_Ascendix</h1>
-          </div>
-          <div className="p-3">
-            <h1 className="text-lg text-blue-600 font-mono">Databases</h1>
-            <div className="my-3">
-              <form className="max-w-md mx-auto">
-                <label className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
-                <div className="flex border border-gray-300 rounded-lg">
-                  <div className=" inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg
-                      className="w-4 h-4 text-gray-500 "
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    type="search"
-                    id="default-search"
-                    className="block focus:outline-none w-full p-1 font-mono ps-10 text-sm text-gray-900 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                    placeholder="Search.."
-                    required
-                  />
-                </div>
-              </form>
-            </div>
-            {/* Here i should be able to add multiple databases from the backend */}
-            {dataSources.map((item, idx1) => {
-              return (
-                <div key={idx1} className="my-3 transition-all duration-700 ease-in-out">
-                  <div className="flex items-center">
-                    <div className="border border-gray-300 rounded-lg p-1">{item.icon}</div>
-                    <div className="ml-3">
-                      <h1 className="text-lg font-mono">{item.name}</h1>
-                    </div>
-                  </div>
-                  {item.tables.map((table, idx) => {
-                    return (
-                      <div>
-                        <div
-                          key={idx}
-                          className="mt-1 ml-3 flex hover:bg-gray-100 transition-all duration-200 ease-in-out hover:rounded-md items-center"
-                        >
-                          <button
-                            onClick={() => {
-                              if (tableDetailsButton === true && tableDetailsButtonIdx === idx && SourceIdx === idx1) {
-                                setTableDetailsButton(false);
-                                setTableDetailsButtonIdx(-1);
-                                setSourceIdx(-1);
-                              } else {
-                                setTableDetailsButton(true);
-                                setTableDetailsButtonIdx(idx);
-                                setSourceIdx(idx1);
-                              }
-                            }}
-                            className="tansition-all duration-200 ease-in-out flex items-center"
-                          >
-                            <MdOutlineChevronRight
-                              className={`text-gray-400 ${tableDetailsButton && tableDetailsButtonIdx === idx && SourceIdx === idx1 ? 'transition-all duration-300 ease-in-out rotate-90' : ''}`}
-                              size={26}
-                            />
-                            <h1 className="ml-2 text-sm font-light font-mono">{table}</h1>
-                          </button>
-                        </div>
-                        <div className="ml-10 transition-all duration-700 ease-in-out">
-                          {tableDetailsButtonIdx === idx && SourceIdx === idx1 ? (
-                            <h1
-                              className={`text-gray-400 ${tableDetailsButton && tableDetailsButtonIdx === idx && SourceIdx === idx1 ? 'transition-all duration-300 ease-in-out' : ''}`}
-                            >
-                              Hello
-                            </h1>
-                          ) : (
-                            <></>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div>
-                    <button className="flex ml-10 items-center mt-2" onClick={() => setShowModal(true)}>
-                      <CiCirclePlus className="text-gray-500" size={20} />
-                      <h1 className="ml-2 font-mono font-light text-md text-gray-500">Add Table</h1>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <SidebarForDatabases
+          setShowModal={setShowModal}
+        />
         <div className="w-screen">
-          <div className="border-b flex items-center justify-end pr-5 border-gray-300 p-3">
-            <Link to={'/dbenter'}>
-              <button className="flex bg-blue-600 rounded-md mr-3 p-1 items-center">
-                <GoPlus className="text-white" size={20} />
-                <h1 className="text-white font-mono text-md font-light">Add Source</h1>
-              </button>
-            </Link>
-            <button
-              onClick={() => {
-                setShowAccountModal(true);
-              }}
-            >
-              <img src={user} alt="" className=" h-[2rem] w-9 rounded-full" />
-            </button>
-            {showAccountModal ? (
-              <div
-                ref={modalRef}
-                className="absolute right-10 w-48 top-12 bg-white border border-gray-300 rounded-md p-2"
+          <div className="border-b flex items-center justify-between pr-5 border-gray-300 p-3">
+            <NavbarForDb />
+            <div className='flex items-center'>
+              <Link to={'/dbenter'}>
+                <button className="flex bg-blue-600 rounded-md mr-3 p-1 items-center">
+                  <GoPlus className="text-white" size={20} />
+                  <h1 className="text-white font-mono text-md font-light">Add Source</h1>
+                </button>
+              </Link>
+              <button
+                onClick={() => {
+                  setShowAccountModal(true);
+                }}
               >
-                <Link to={'/account/profile'}>
+                <img src={user} alt="" className=" h-[2rem] w-9 rounded-full" />
+              </button>
+              {showAccountModal ? (
+                <div
+                  ref={modalRef}
+                  className="absolute right-10 w-48 top-12 bg-white border border-gray-300 rounded-md p-2"
+                >
+                  <Link to={'/account/profile'}>
+                    <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
+                      <VscAccount className="text-black" size={20} />
+                      <h1 className="font-mono text-md ml-2 text-black font-light">Account</h1>
+                    </div>
+                  </Link>
                   <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
-                    <VscAccount className="text-black" size={20} />
-                    <h1 className="font-mono text-md ml-2 text-black font-light">Account</h1>
+                    <IoSettingsOutline className="text-black" size={20} />
+                    <h1 className="font-mono text-md ml-2 text-black font-light">Settings</h1>
                   </div>
-                </Link>
-                <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
-                  <IoSettingsOutline className="text-black" size={20} />
-                  <h1 className="font-mono text-md ml-2 text-black font-light">Settings</h1>
+                  <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
+                    <CgOrganisation className="text-black" size={20} />
+                    <h1 className="font-mono text-md ml-2 text-black font-light">Organisations</h1>
+                  </div>
+                  <div className="border-t border-gray-300 mb-2 mt-2"></div>
+                  <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
+                    <CiLogout className="text-red-500" size={20} />
+                    <h1 className="font-mono text-md ml-2 text-red-500">Logout</h1>
+                  </div>
                 </div>
-                <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
-                  <CgOrganisation className="text-black" size={20} />
-                  <h1 className="font-mono text-md ml-2 text-black font-light">Organisations</h1>
-                </div>
-                <div className="border-t border-gray-300 mb-2 mt-2"></div>
-                <div className="flex items-center rounded-md hover:bg-gray-200 p-2">
-                  <CiLogout className="text-red-500" size={20} />
-                  <h1 className="font-mono text-md ml-2 text-red-500">Logout</h1>
-                </div>
-              </div>
-            ) : (
-              <></>
-            )}
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
           <div className="flex">
             <div className="w-3/4 p-4 h-[93vh] border-r flex-row border-gray-300">
