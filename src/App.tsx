@@ -17,6 +17,7 @@ import Connection from './components/Connection';
 import Signup from './components/Signup';
 import Account from './components/Account';
 import Branches from './components/Branches';
+import NewBranch from './NewBranch';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/account/profile" element={<Account />} />
         <Route path="/database/branches" element={<Branches />} />
+        <Route path="/newBranch" element={<NewBranch />} />
       </Routes>
     </>
   );
